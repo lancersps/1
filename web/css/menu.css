@@ -1,0 +1,47 @@
+#main-menu.navbar-default .navbar-brand {
+    color: rgba(85, 73, 85, 1);
+    margin-top: -16px;    
+}
+#main-menu.navbar-default {
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 1);
+    border-width: 0px;
+    border-radius: 0px;
+
+}
+#main-menu.navbar-default .navbar-nav>li>a {
+    color: rgba(85, 73, 85, 1);
+    background-color: rgba(255, 255, 255, 1);
+        margin-top: -16px;
+}
+#main-menu.navbar-default .navbar-nav>li>a:hover,
+#main-menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(85, 73, 85, 1);
+    background-color: rgba(238, 238, 238, 1);
+        margin-top: -16px;
+}
+#main-menu.navbar-default .navbar-nav>.active>a,
+#main-menu.navbar-default .navbar-nav>.active>a:hover,
+#main-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(252, 67, 67, 1);
+    background-color: rgba(255, 255, 255, 1);
+        margin-top: -16px;   
+}
+#main-menu.navbar-default .navbar-toggle {
+    border-color: #ffffff;
+        margin-top: -16px;
+}
+#main-menu.navbar-default .navbar-toggle:hover,
+#main-menu.navbar-default .navbar-toggle:focus {
+    background-color: #ffffff;
+        margin-top: -16px;   
+}
+#main-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+        margin-top: -16px;    
+}
+#main-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#main-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #ffffff;
+        margin-top: -16px;    
+}
