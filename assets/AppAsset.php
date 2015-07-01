@@ -19,7 +19,9 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
-        'css/menu.css',        
+        'css/menu.css', 
+        //'css/bootstrap.css', 
+
         //'css/css-family=Open+Sans-400,300,600,700.css',
         'css/all.css',
         'css/slide.css',

@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -16,6 +17,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <?= Html::csrfMetaTags()?>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
@@ -28,14 +30,34 @@ AppAsset::register($this);
 <!--Меню-->
     <header class="header">
         <div class="container">
+        <!--Выпадающее меню-->                   
+        <?php 
+        //до входа
+            if (Yii::$app->user->isGuest):?>
                  <div class="top-block">
-        <!--Из примера-->
+
+                    <div id="toppanel">
+
+                        <!-- Закладка наверху -->   
+
+                                    <a href="<?php echo Url::to(['/user/login']);?>">
+                                         <div class="opener user-blockk">
+                                                <span class='summ'><strong>Sign In</strong></span>
+                                        </div>
+                                    </a>
+
+                      </div>  
+
+                    </div>
+        <!--после входа-->
+         <?php   else :?>
+                 <div class="top-block">
+
                     <div id="toppanel">
                         <div id="panel">
-
                                 <div class="col-xs-12 col-md-6">
                                     <div class="welcome-message">
-                                        Hello, Vasilij! Your balance: $63,230.00
+                                        Hello, <b> <?php echo Yii::$app->user->displayName?></b> Your balance: $63,230.00
                                     </div>
                                     <ul class="balance-tools">
                                         <li><a href="#"><span aria-hidden="true" class="glyphicon glyphicon-save"></span></a></li>
@@ -54,7 +76,7 @@ AppAsset::register($this);
                                             <button type="submit" class="btn"><span aria-hidden="true" class="glyphicon glyphicon-play"></span></button>
                                         </fieldset>
                                     </form>
-                                    <a href="#" class="link-exit">Exit <span class="glyphicon glyphicon-share"></span></a>
+                                    <a href="<?php echo Url::to(['/user/logout']);?>" data-method="post">Exit <span class="glyphicon glyphicon-share"></span></a>
                                 </div>
 
                         </div> 
@@ -63,32 +85,34 @@ AppAsset::register($this);
                                 <div id="toggle">
                                     <a id="open" href="#">
                                          <div class="opener user-block">
-                                            <span class="message"><span aria-hidden="true" class="glyphicon glyphicon-send"></span> 13</span>
-                                            <span class="summ"><?php
-                 Yii::$app->user->isGuest ?
-                    ['label' => 'Login', 'url' => ['/user/login']] :
-                    ['label' => 'Logout (' . Yii::$app->user->displayName . ')',
-                        'url' => ['/user/logout'],
-                        'linkOptions' => ['data-method' => 'post']]
-?></span>
+                                            <?php 
+                                            if (Yii::$app->user->isGuest) {?>
+                                                <span class='summ'>login </span>
+                                            <?php } else {?>
+                                                <span class='message'><span aria-hidden='true' class='glyphicon glyphicon-send'></span> 13</span>
+                                                    <span class='summ'>1-$63,230.00</span>
+                                           <?php }?>
+                                            
                                             <img src="images/img01.jpg" class="ava" alt=""/>
                                         </div>
                                     </a>
                                     <a id="close" style="display: none;" href="#">
                                          <div class="opener user-block">
-                                            <span class="message"><span aria-hidden="true" class="glyphicon glyphicon-send"></span> 13</span>
-                                            <span class="summ">$63,230.00</span>
+                                                <span class='message'><span aria-hidden='true' class='glyphicon glyphicon-send'></span> 13</span>
+                                                    <span class='summ'>1-$63,230.00</span>
                                             <img src="images/img01.jpg" class="ava" alt=""/>
                                         </div>
                                     </a>            
                                 </div>
                       </div>  
-        <!--END Из примера-->
-                    </div>
 
-                <?php $this->beginBody() ?>
-                    <div class="row">
-                        <?php
+                    </div>
+           <?php endif;?>
+        <!--END Выпадающее меню-->
+
+    <?php $this->beginBody() ?>
+        <div class="row">
+            <?php
             NavBar::begin([
                 'brandLabel' => '<img src="images/logo.png" alt=""/>',
                 'brandUrl' => Yii::$app->homeUrl,
@@ -99,6 +123,7 @@ AppAsset::register($this);
                      'id' => 'main-menu',
                   ],
             ]);
+            if (Yii::$app->user->isGuest):
             $menuItems = [
                  ['label' => 'HOME', 'url' => ['/site/home']],
                  [
@@ -116,24 +141,46 @@ AppAsset::register($this);
                  ['label' => 'EVENTS', 'url' => ['/site/events']],
                  ['label' => 'HELP', 'url' => ['/site/help']],
                  ['label' => '!!User!!', 'url' => ['/user']],
-                 Yii::$app->user->isGuest ?
+                 //   ['label' => 'Login', 'url' => ['/user/login']]
+
+                 /*Yii::$app->user->isGuest ?
                     ['label' => 'Login', 'url' => ['/user/login']] :
                     ['label' => 'Logout (' . Yii::$app->user->displayName . ')',
+                    ['label' => 'Logout',
                         'url' => ['/user/logout'],
-                        'linkOptions' => ['data-method' => 'post']],
+                        'linkOptions' => ['data-method' => 'post']],*/
             ];
-            /*
-            if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-            } else {
-                $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ];
-            }
-            */
+
+            else :
+            $menuItems = [
+                 ['label' => 'HOME', 'url' => ['/site/home']],
+                 [
+                   'label' => 'INFORMATION',
+                   'items' => [
+                        ['label' => 'Create', 'url' => ['/site/information']],
+                    ],
+                 ], 
+                 [
+                   'label' => 'MEMBERSHIP',
+                   'items' => [
+                        ['label' => 'Create', 'url' => ['/site/membership']],
+                    ],
+                 ], 
+                 ['label' => 'EVENTS', 'url' => ['/site/events']],
+                 ['label' => 'HELP', 'url' => ['/site/help']],
+                 ['label' => '!!User!!', 'url' => ['/user']],
+                 /*['label' => 'Logout',
+                    'url' => ['/user/logout'],
+                    'linkOptions' => ['data-method' => 'post']],*/
+
+                 /*Yii::$app->user->isGuest ?
+                    ['label' => 'Login', 'url' => ['/user/login']] :
+                    ['label' => 'Logout (' . Yii::$app->user->displayName . ')',
+                    ['label' => 'Logout',
+                        'url' => ['/user/logout'],
+                        'linkOptions' => ['data-method' => 'post']],*/
+            ];
+            endif;
             echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-left'],
                 'items' => $menuItems,
@@ -149,6 +196,7 @@ AppAsset::register($this);
             ]) ?>
         </div>
     </header>
+
 </div>
 <!--end Меню-->
 <!--Контент-->
@@ -156,8 +204,9 @@ AppAsset::register($this);
             <?= $content ?>
         </div>
 
+<footer id="footer">
 <!--end Контент-->
-<div class="support">
+            <div class="support">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12 col-md-9">
@@ -171,7 +220,7 @@ AppAsset::register($this);
                 </div>
             </div>
 <!--Подвал сайта-->
-        <footer id="footer">
+
             <div class="container">
                 <div class="row">
                     <section class="col-xs-12 col-sm-6 col-md-3">

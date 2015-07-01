@@ -2,8 +2,7 @@
 /* @var $this yii\web\View */
 $this->title = 'TeslaGrant';
 ?>
-            <div class="container">
-
+            <div>
                 <section class="services">
                     <div class="col-left">
                         <div class="block green">
@@ -96,9 +95,3 @@ $this->title = 'TeslaGrant';
                     </div>
                 </section>
             </div>
-
-
- 
-
-    </div>
-</div>
