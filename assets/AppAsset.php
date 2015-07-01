@@ -21,7 +21,6 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/menu.css', 
         //'css/bootstrap.css', 
-
         //'css/css-family=Open+Sans-400,300,600,700.css',
         'css/all.css',
         'css/slide.css',

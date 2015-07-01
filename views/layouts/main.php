@@ -92,7 +92,6 @@ AppAsset::register($this);
                                                 <span class='message'><span aria-hidden='true' class='glyphicon glyphicon-send'></span> 13</span>
                                                     <span class='summ'>1-$63,230.00</span>
                                            <?php }?>
-                                            
                                             <img src="images/img01.jpg" class="ava" alt=""/>
                                         </div>
                                     </a>
@@ -105,7 +104,6 @@ AppAsset::register($this);
                                     </a>            
                                 </div>
                       </div>  
-
                     </div>
            <?php endif;?>
         <!--END Выпадающее меню-->
@@ -196,14 +194,12 @@ AppAsset::register($this);
             ]) ?>
         </div>
     </header>
-
 </div>
 <!--end Меню-->
 <!--Контент-->
         <div class="container">
             <?= $content ?>
         </div>
-
 <footer id="footer">
 <!--end Контент-->
             <div class="support">
@@ -220,7 +216,6 @@ AppAsset::register($this);
                 </div>
             </div>
 <!--Подвал сайта-->
-
             <div class="container">
                 <div class="row">
                     <section class="col-xs-12 col-sm-6 col-md-3">

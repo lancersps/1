@@ -1,12 +1,16 @@
+
 .header:after,
 .header .icons:after,
 .top-block:after,
 .top-block .toolbar:after,
+
 .services:after,
 .nav-tabs:after,
 .profile .heading:after,
 #footer ul:after,
 .subscribe-form:after,
+
+
 .copyrights:after,
 .layout:after {
 	content: " ";
@@ -128,6 +132,16 @@
 	border: 1px solid transparent;
 }
 
+/* Icons */
+
+@font-face {
+	font-family: "slick";
+	src: url("../fonts/slick.eot")/*tpa=http://markup.beta.branderstudio.com/tg/css/fonts/slick.eot*/;
+	src: url("../fonts/slick.eot-#iefix")/*tpa=http://markup.beta.branderstudio.com/tg/css/fonts/slick.eot?#iefix*/ format("embedded-opentype"), url("../fonts/slick.woff")/*tpa=http://markup.beta.branderstudio.com/tg/css/fonts/slick.woff*/ format("woff"), url("../fonts/slick.ttf")/*tpa=http://markup.beta.branderstudio.com/tg/css/fonts/slick.ttf*/ format("truetype"), url("../fonts/slick.svg#slick")/*tpa=http://markup.beta.branderstudio.com/tg/css/fonts/slick.svg#slick*/ format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
 /* Arrows */
 
 .slick-prev,
@@ -151,6 +165,7 @@
 .slick-prev:before,
 .slick-next:before,
 .slick-next:before {
+	font-family: "slick";
 	font-size: 20px;
 	line-height: 1;
 	color: white;
@@ -174,6 +189,15 @@
 	right: -25px;
 }
 
+
+.slick-prev:before {
+	content: "\2190";
+}
+
+[dir="rtl"] .slick-prev:before {
+	content: "\2192";
+}
+
 .slick-next {
 	right: -25px;
 }
@@ -181,6 +205,14 @@
 [dir="rtl"] .slick-next {
 	left: -25px;
 	right: auto;
+}
+
+.slick-next:before {
+	content: "\2192";
+}
+
+[dir="rtl"] .slick-next:before {
+	content: "\2190";
 }
 
 /* Dots */
@@ -418,8 +450,8 @@ table {
 
 @font-face {
 	font-family: "icomoon";
-	src: url("../fonts/icomoon/icomoon.eot?5e6ck5");
-	src: url("../fonts/icomoon/icomoon.eot?#iefix5e6ck5") format("embedded-opentype"), url("../fonts/icomoon/icomoon.woff?5e6ck5") format("woff"), url("../fonts/icomoon/icomoon.ttf?5e6ck5") format("truetype"), url("../fonts/icomoon/icomoon.svg?5e6ck5#icomoon") format("svg");
+	src: url("../fonts/icomoon.eot-5e6ck5")/*tpa=http://markup.beta.branderstudio.com/tg/fonts/icomoon/icomoon.eot?5e6ck5*/;
+	src: url("../fonts/icomoon.eot-#iefix5e6ck5")/*tpa=http://markup.beta.branderstudio.com/tg/fonts/icomoon/icomoon.eot?#iefix5e6ck5*/ format("embedded-opentype"), url("../fonts/icomoon.woff-5e6ck5")/*tpa=http://markup.beta.branderstudio.com/tg/fonts/icomoon/icomoon.woff?5e6ck5*/ format("woff"), url("../fonts/icomoon.ttf-5e6ck5")/*tpa=http://markup.beta.branderstudio.com/tg/fonts/icomoon/icomoon.ttf?5e6ck5*/ format("truetype"), url("../fonts/icomoon.svg-5e6ck5#icomoon")/*tpa=http://markup.beta.branderstudio.com/tg/fonts/icomoon/icomoon.svg?5e6ck5#icomoon*/ format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -531,6 +563,19 @@ h6 {
 	overflow: hidden;
 }
 
+
+.top-block {
+	margin: 0 -9999px 16px;
+	padding: 0 9999px;
+	background: #87d700;
+	color: #fff;
+}
+
+.top-block .open-close {
+	padding: 11px 0 10px;
+	position: relative;
+}
+
 .header {
 	background: #fff;
 }
@@ -586,6 +631,7 @@ h6 {
 
 .user-blockk {
 	color: #fff;
+
 	position: absolute;
 	right: 15px;
 	top: 100%;
@@ -603,6 +649,7 @@ h6 {
 	border-radius: 0 0 3px 3px;
 	padding: 0 23px 0 0;
 	position: relative;
+
 	z-index: 10;
 	line-height: 36px;
 }
@@ -621,6 +668,7 @@ h6 {
 .active .user-block:after {
 	background-position: 0 0;
 }
+
 
 .user-block .message {
 	width: 51px;
@@ -718,6 +766,7 @@ h6 {
 	font-size: 14px;
 }
 
+
 .nav-holder {
 	margin-top: -20px;
 	float: left;
@@ -772,6 +821,7 @@ h6 {
 
 .language {
 	color: #8c909f;
+	margin: -5px 0 7px;
 }
 
 .language select {
@@ -790,7 +840,6 @@ h6 {
 .breadcrumbs-holder .breadcrumb {
 	margin: 0;
 }
-
 .breadcrumbs-holder .breadcrumb > li + li:before {
 	content: "/";
 	padding-right: 3px;
@@ -813,7 +862,6 @@ h6 {
 	display: block;
 	margin: 0 auto;
 }
-
 .gallery h2 {
 	font-size: 24px;
 	line-height: 27px;
@@ -1274,7 +1322,6 @@ h6 {
 .profile .table .wide {
 	width: 340px;
 }
-
 .add-photo {
 	position: relative;
 	background: #f4f4f4;
@@ -1387,8 +1434,6 @@ h6 {
 
 .tabs-orders li.active a:after {
 	display: block;
-}
-
 .tabs-orders li a {
 	color: #fff;
 	display: block;
@@ -1438,7 +1483,6 @@ h6 {
 .tabs-orders li a[aria-controls="courses"]:after {
 	border-top-color: #ff3d3d;
 }
-
 .tabs-orders li a[aria-controls="tutoring"] {
 	background: #87d700;
 }
@@ -1815,6 +1859,7 @@ h6 {
 	position: absolute;
 	z-index: 50;
 }
+
 
 @media (min-width: 480px) and (max-width: 991px) {
 	#footer .columns .col-xs-12 {
